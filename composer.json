@@ -1,0 +1,26 @@
+{
+    "require": {
+        "serafim/gitter-api": "~3.0",
+        "getjump/vk": "~0.5",
+        "josegonzalez/dotenv": "~2.0",
+        "illuminate/support": "~5.3",
+        "illuminate/config": "~5.3",
+        "illuminate/container": "~5.3",
+        "monolog/monolog": "~1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelNews\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "run-linux": "nohup daemon ./run > /dev/null 2>&1 &",
+        "run-windows": "start daemon -f ./run"
+    }
+}
