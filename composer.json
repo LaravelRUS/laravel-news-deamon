@@ -20,7 +20,7 @@
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
         ],
-        "run-linux": "nohup daemon ./run > /dev/null 2>&1 &",
-        "run-windows": "start daemon -f ./run"
+        "run-linux": "nohup php -f ./daemon > /dev/null 2>&1 &",
+        "run-windows": "php -f ./daemon"
     }
 }
