@@ -7,17 +7,13 @@
  */
 namespace LaravelNews;
 
-use getjump\Vk\Core;
-use Gitter\Client;
-use josegonzalez\Dotenv\Loader;
-use Illuminate\Config\Repository;
-use Illuminate\Container\Container;
-use LaravelNews\Providers\ConfigProvider;
 
-use LaravelNews\Providers\GitterClientProvider;
+use Gitter\Client;
+use Illuminate\Container\Container;
 use LaravelNews\Providers\LogProvider;
+use LaravelNews\Providers\ConfigProvider;
 use LaravelNews\Providers\VkClientProvider;
-use React\EventLoop\LoopInterface;
+use LaravelNews\Providers\GitterClientProvider;
 
 /**
  * Class Application
