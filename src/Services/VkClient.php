@@ -66,7 +66,7 @@ class VkClient
 
         $data = json_decode($response);
 
-        if (($answer = $data->response[1]) ?? false) {
+        if (($answer = $data->response) ?? false) {
             return $answer;
         } else {
             throw new \RuntimeException('Invalid api response: ' . $response);

@@ -45,11 +45,13 @@ class VkClientProvider extends ServiceProvider
         $this->app->bind('laravel.news', function (Container $app) use ($config) {
             $vk = $app->make(VkClient::class);
 
-            return $vk->request('wall.get', [
+            $response = $vk->request('wall.get', [
                 'count'    => 2, // Ignore attached message
                 'filter'   => 'owner',
                 'owner_id' => $config->get('vk.community')
             ]);
+
+            return array_pop($response);
         });
     }
 }
