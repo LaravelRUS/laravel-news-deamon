@@ -63,6 +63,11 @@ class GitterNotify
             $this->logger->info('VK Response: ' . json_encode($message));
 
             if ($this->lastPostId !== null && $this->lastPostId !== $message->id) {
+                // Escape html
+                $message->text = strip_tags(
+                    str_replace(['<br/>', '<br />', '<br>'], "\n", $message->text)
+                );
+
                 $notification =
                     '**Новости LaravelRUS**' . "\n" .
                     '[' . message_title($message->text) . ']' .
