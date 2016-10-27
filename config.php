@@ -7,7 +7,7 @@ return [
     'vk'     => [
         'app_id'    => env('VK_APP_ID', ''),
         'secret'    => env('VK_APP_SECRET', ''),
-        'delay'     => 1,
+        'delay'     => 60,
         'community' => '-53758340', // Laravel RUS
     ],
     'log'    => [
