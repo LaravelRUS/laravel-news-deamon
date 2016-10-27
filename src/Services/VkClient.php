@@ -16,7 +16,7 @@ class VkClient
     const API_URI = 'api.vk.com/method';
 
     /**
-     * @var int
+     * @var string
      */
     private $appId;
 
@@ -32,10 +32,10 @@ class VkClient
 
     /**
      * VkClient constructor.
-     * @param int $appId
+     * @param string $appId
      * @param string $secret
      */
-    public function __construct(int $appId, string $secret)
+    public function __construct(string $appId, string $secret)
     {
         $this->appId = $appId;
         $this->secret = $secret;
