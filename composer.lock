@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "817e540f8e75cac8ec709f66d2d8dd71",
-    "content-hash": "582fe29c6bd82d5bf78bcdc504372f9b",
+    "hash": "792569a694f4b27778b9a3e48295b0da",
+    "content-hash": "feb10add0b01006e377f2478c424cc9a",
     "packages": [
         {
             "name": "clue/block-react",
@@ -224,118 +224,6 @@
             "time": "2012-11-02 14:49:47"
         },
         {
-            "name": "getjump/vk",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/getjump/VkApiPHP.git",
-                "reference": "68a16b819f716a1964209b1c992a219b9dd4b456"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/getjump/VkApiPHP/zipball/68a16b819f716a1964209b1c992a219b9dd4b456",
-                "reference": "68a16b819f716a1964209b1c992a219b9dd4b456",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "4.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "getjump\\Vk\\": "src/getjump/Vk/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pavel S.",
-                    "email": "contact@getjump.me"
-                }
-            ],
-            "description": "Library for work with API Vk.com",
-            "keywords": [
-                "api",
-                "library",
-                "php",
-                "vk",
-                "vkontakte"
-            ],
-            "time": "2016-02-09 21:58:09"
-        },
-        {
-            "name": "guzzlehttp/guzzle",
-            "version": "4.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "13a8e5acff26b0a87d353042170b48976da004a1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/13a8e5acff26b0a87d353042170b48976da004a1",
-                "reference": "13a8e5acff26b0a87d353042170b48976da004a1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/streams": "~2.1",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "ext-curl": "Guzzle will use specific adapters if cURL is present"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2016-07-15 17:44:18"
-        },
-        {
             "name": "guzzlehttp/psr7",
             "version": "1.3.1",
             "source": {
@@ -392,59 +280,6 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
-        },
-        {
-            "name": "guzzlehttp/streams",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/streams.git",
-                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/f91b721d73f0e561410903b3b3c90a5d0e40b534",
-                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Stream\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides a simple abstraction over streams of data (Guzzle 4+)",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "stream"
-            ],
-            "time": "2014-08-17 21:15:53"
         },
         {
             "name": "illuminate/config",

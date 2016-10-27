@@ -7,10 +7,10 @@
  */
 namespace LaravelNews\Providers;
 
-use getjump\Vk\Core;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
+use LaravelNews\Services\VkClient;
 
 /**
  * Class VkClientProvider
@@ -25,8 +25,11 @@ class VkClientProvider extends ServiceProvider
     public function register(Repository $config)
     {
         // VK API Core
-        $this->app->singleton(Core::class, function(Container $app) {
-            return Core::getInstance()->apiVersion('5.58');
+        $this->app->singleton(VkClient::class, function(Container $app) use ($config) {
+            $client = new VkClient($config->get('vk.app_id'), $config->get('vk.secret'));
+            $client->version('5.59');
+
+            return $client;
         });
 
         $this->registerWallMethod($config);
@@ -40,22 +43,13 @@ class VkClientProvider extends ServiceProvider
     {
         // Last LaravelRus Wall News
         $this->app->bind('laravel.news', function (Container $app) use ($config) {
-            $vk = $app->make(Core::class);
+            $vk = $app->make(VkClient::class);
 
-            $request = $vk->request('wall.get', [
+            return $vk->request('wall.get', [
                 'count'    => 2, // Ignore attached message
                 'filter'   => 'owner',
                 'owner_id' => $config->get('vk.community')
             ]);
-
-            /** @var array $response */
-            $response = $request->fetchData()->getResponse();
-
-            if (!is_array($response)) {
-                throw new \RuntimeException('Response data is not an array');
-            }
-
-            return array_pop($response);
         });
     }
 }

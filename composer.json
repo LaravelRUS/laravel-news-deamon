@@ -1,7 +1,6 @@
 {
     "require": {
         "serafim/gitter-api": "~3.0",
-        "getjump/vk": "~0.5",
         "josegonzalez/dotenv": "~2.0",
         "illuminate/support": "~5.3",
         "illuminate/config": "~5.3",

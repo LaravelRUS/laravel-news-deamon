@@ -5,7 +5,9 @@ return [
         'hook'  => env('GITTER_WEBHOOK_ID'),
     ],
     'vk'     => [
-        'delay' => 1,
+        'app_id'    => env('VK_APP_ID', ''),
+        'secret'    => env('VK_APP_SECRET', ''),
+        'delay'     => 1,
         'community' => '-53758340', // Laravel RUS
     ],
     'log'    => [
