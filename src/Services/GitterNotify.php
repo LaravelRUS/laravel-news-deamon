@@ -68,10 +68,11 @@ class GitterNotify
                     str_replace(['<br/>', '<br />', '<br>'], "\n", $message->text)
                 );
 
+
                 $notification =
                     '**Новости LaravelRUS**' . "\n" .
                     '[' . message_title($message->text) . ']' .
-                    sprintf('(https://vk.com/laravel_rus?w=wall%s_%s)', $message->owner_id, $message->id);
+                    sprintf('(https://vk.com/laravel_rus?w=wall%s_%s)', $message->from_id, $message->id);
 
                 $this->send($this->hookId, $notification)->then(function($response) use ($deferred) {
                     $deferred->resolve($response);
