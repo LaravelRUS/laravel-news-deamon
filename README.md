@@ -23,6 +23,6 @@ to [gitter.im](https://gitter.im/LaravelRUS/chat)
 
 - Setting up a `.env` variables (see example)
 - Run:
-  - Windows: `composer run-windows` or `start php -f ./daemon`
-  - Linux: `composer run-linux` or `nohup php -f ./daemon > /dev/null 2>&1 &`
-  - Others: `php daemon`
+  - Windows: `composer run-windows` or `start php -f ./news-service`
+  - Linux: `composer run-linux` or `nohup php -f ./news-service > /dev/null 2>&1 &`
+  - Others: `php news-service`
