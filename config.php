@@ -1,6 +1,9 @@
 <?php
 return [
-    'gitter_hook_id' => env('GITTER_WEBHOOK_ID'),
+    'gitter'       => [
+        'token'   => env('GITTER_TOKEN', ''),
+        'hook_id' => env('GITTER_WEBHOOK_ID', ''),
+    ],
     'notify_title' => env('NOTIFY_TITLE', '**Новости сообщества**'),
     'vk'           => [
         'has_attachment' => env('VK_HAS_ATTACHMENT', false),

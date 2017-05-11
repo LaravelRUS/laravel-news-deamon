@@ -55,7 +55,7 @@ class GitterNotify
     {
         $this->logger = $logger;
         $this->gitter = $gitter;
-        $this->hookId = $config->get('gitter_hook_id');
+        $this->hookId = $config->get('gitter.hook_id');
         $this->config = $config;
     }
 
