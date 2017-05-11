@@ -5,11 +5,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace LaravelNews\Services;
 
 use Gitter\Client;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Contracts\Container\Container;
 use Psr\Log\LoggerInterface;
 use React\Promise\Deferred;
 use React\Promise\Promise;
@@ -20,7 +20,11 @@ use React\Promise\Promise;
  */
 class GitterNotify
 {
+    /**
+     * @var null|string
+     */
     private $lastPostId = null;
+
     /**
      * @var LoggerInterface
      */
@@ -37,6 +41,11 @@ class GitterNotify
     private $hookId;
 
     /**
+     * @var Repository
+     */
+    private $config;
+
+    /**
      * GitterNotify constructor.
      * @param LoggerInterface $logger
      * @param Client $gitter
@@ -46,7 +55,8 @@ class GitterNotify
     {
         $this->logger = $logger;
         $this->gitter = $gitter;
-        $this->hookId = $config->get('gitter.hook');
+        $this->hookId = $config->get('gitter_hook_id');
+        $this->config = $config;
     }
 
     /**
@@ -70,11 +80,18 @@ class GitterNotify
 
 
                 $notification =
-                    '**Новости LaravelRUS**' . "\n" .
-                    '[' . message_title($message->text) . ']' .
-                    sprintf('(https://vk.com/laravel_rus?w=wall%s_%s)', $message->from_id, $message->id);
+                    $this->config->get('notify_title') . "\n" .
 
-                $this->send($this->hookId, $notification)->then(function($response) use ($deferred) {
+                    '[' . message_title($message->text) . ']' .
+
+                    sprintf(
+                        '(https://vk.com/%s?w=wall%s_%s)',
+                        $this->config->get('vk.community_name'),
+                        $message->from_id,
+                        $message->id
+                    );
+
+                $this->send($this->hookId, $notification)->then(function ($response) use ($deferred) {
                     $deferred->resolve($response);
                 });
             }

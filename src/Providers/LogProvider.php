@@ -26,7 +26,7 @@ class LogProvider extends ServiceProvider
     public function register(Repository $config)
     {
         $this->app->singleton(Logger::class, function(Container $app) use ($config) {
-            return new Logger('laravel-news', [ $this->handler($config) ]);
+            return new Logger('news-service', [ $this->handler($config) ]);
         });
 
         $this->app->alias(Logger::class, LoggerInterface::class);

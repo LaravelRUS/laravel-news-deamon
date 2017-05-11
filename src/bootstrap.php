@@ -17,7 +17,7 @@ namespace {
         ->addPeriodicTimer($config->get('vk.delay', 60), function () use ($app, $logger, $gitterNotification) {
             $gitterNotification
                 ->notify(function () use ($app) {
-                    return $app->make('laravel.news');
+                    return $app->make('news-service');
                 })
                 ->then(function ($response) use ($logger) {
                     $logger->info('Successfully response: ' . json_encode($response));

@@ -26,7 +26,7 @@ class VkClientProvider extends ServiceProvider
     {
         // VK API Core
         $this->app->singleton(VkClient::class, function(Container $app) use ($config) {
-            $client = new VkClient($config->get('vk.app_id'), $config->get('vk.secret'));
+            $client = new VkClient('', '');
             $client->version('5.59');
 
             return $client;
@@ -41,14 +41,14 @@ class VkClientProvider extends ServiceProvider
      */
     private function registerWallMethod(Repository $config)
     {
-        // Last LaravelRus Wall News
-        $this->app->bind('laravel.news', function (Container $app) use ($config) {
+        // Last Wall News
+        $this->app->bind('news-service', function (Container $app) use ($config) {
             $vk = $app->make(VkClient::class);
 
             $response = $vk->request('wall.get', [
-                'count'    => 2, // Ignore attached message
+                'count'    => $config->get('vk.has_attachment') ? 2 : 1,
                 'filter'   => 'owner',
-                'owner_id' => $config->get('vk.community')
+                'owner_id' => $config->get('vk.community_id')
             ]);
 
             return array_pop($response);
